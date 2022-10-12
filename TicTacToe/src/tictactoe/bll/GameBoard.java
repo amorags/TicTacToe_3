@@ -104,7 +104,7 @@ public class GameBoard implements IGameModel
         {
             if (board[0][col] == board[1][col] && board[1][col] == board[2][col] && board[0][col] != -1)
             {
-                winnerId = board[col][0];
+                winnerId = board[0][col];
                 return true;
             }
 
