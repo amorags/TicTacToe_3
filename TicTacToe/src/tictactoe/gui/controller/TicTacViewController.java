@@ -58,6 +58,7 @@ public class TicTacViewController implements Initializable
                     Button btn = (Button) event.getSource();
                     String xOrO = player == 0 ? "X" : "O";
                     btn.setText(xOrO);
+                    btn.setDisable(true);
                     setPlayer();
                 }
             }
@@ -108,6 +109,7 @@ public class TicTacViewController implements Initializable
         {
             Button btn = (Button) n;
             btn.setText("");
+            btn.setDisable(false);
         }
     }
 
