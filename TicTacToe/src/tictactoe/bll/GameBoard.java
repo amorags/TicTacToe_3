@@ -11,6 +11,7 @@ package tictactoe.bll;
  */
 public class GameBoard implements IGameModel
 {
+
     private int winnerId = -1;
     private  int[][] board= new int[3][3];
     /**
@@ -19,6 +20,13 @@ public class GameBoard implements IGameModel
      * @return int Id of the next player.
      */
     private int playerTurn = 0;
+
+    /**
+     * Dette er en konstruktør, som går ind og fortæller at vi skal starte et newGame
+     */
+    public GameBoard(){
+        newGame();
+    }
     public int getNextPlayer()
     {
         return playerTurn;
@@ -36,18 +44,20 @@ public class GameBoard implements IGameModel
      */
     public boolean play(int col, int row)
     {
-        for ( row = 0; row<board.length; row ++)
-            for(col=0; col<board[row].length; col++ ){
-                if(board[row][col] == playerTurn)
-                {
-                    playerTurn =  1;
-                }
-                else
-                {
-                    playerTurn =0;
-                }
-            }
-        return true;
+        if (board[row][col] == -1) {
+            board[row][col] = playerTurn;
+
+            if (playerTurn == 0)
+                playerTurn = 1;
+            else
+                playerTurn = 0;
+
+            return true;
+        }
+        else{
+            return false;
+        }
+
     }
 
     public boolean isGameOver()

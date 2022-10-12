@@ -81,6 +81,7 @@ public class TicTacViewController implements Initializable
     {
         game = new GameBoard();
         setPlayer();
+
     }
 
     private void setPlayer()
